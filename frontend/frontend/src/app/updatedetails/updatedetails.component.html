@@ -1,0 +1,27 @@
+<div>
+ 
+  <form [formGroup]="detail" (ngSubmit)="onSubmit()" *ngIf="details" > 
+
+      <label>
+        item_name :
+        <input type="text" formControlName="item_name" >
+      </label><br>
+    
+      <label>
+        price:
+        <input type="text" formControlName="price" >
+      </label><br>
+      
+      <label>
+        quantity:
+              <input  type="text" formControlName="quantity" >
+          </label><br>
+      <label>
+        total:
+          <input type="text" formControlName="total" >
+        </label><br>
+      
+      <button type="submit" [disabled]="!detail.valid">Submit</button>
+
+    </form>
+</div>

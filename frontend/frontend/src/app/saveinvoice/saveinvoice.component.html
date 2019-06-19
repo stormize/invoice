@@ -1,0 +1,22 @@
+<div>
+ 
+  <form [formGroup]="invoice" (ngSubmit)="onSubmit()" > 
+
+      <label>
+        customer Name :
+        <input type="text" formControlName="customer_name" type="text">
+      </label><br>
+    
+      <label>
+        address:
+        <input type="text" formControlName="address" type="text">
+      </label><br>
+      <label>
+        total_invoice:
+          <input type="text" formControlName="total_invoice" type="number">
+        </label><br>
+      
+      <button type="submit" [disabled]="!invoice.valid">Submit</button>
+
+    </form>
+</div>

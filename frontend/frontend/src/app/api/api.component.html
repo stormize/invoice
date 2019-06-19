@@ -1,0 +1,27 @@
+<div class="container">
+  <button class="btn btn-success" [routerLink]="['/saveinvoice']">add invoice</button>
+      <table class="table bg-grey-lightest border-l-4 border-red p-4 py-6 rounded shadow-lg flex items-center">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">customer_name</th>
+              <th scope="col">date</th>
+              <th scope="col">address</th>
+              <th scope="col">total_invoice</th>
+            </tr>
+          </thead>
+          <tbody >
+            
+            <tr *ngFor="let invoice of invoices | async"   >
+              <th scope="row">{{invoice.id}}</th>
+              <td>{{invoice.customer_name}}</td>
+              <td>{{invoice.date   | date : "dd/MM/yy HH:mm:ss" }}</td>
+              <td>{{invoice.address}}</td>
+              <td>{{invoice.total_invoice}}</td>
+              <td><button class="btn btn-primary" [routerLink]="['/invoiceupdate',invoice.id]">update</button></td>
+              <td><button class ="btn btn-danger" (click)="ClickDelete(invoice.id)">delete</button></td>
+              <td><button class ="btn btn-info" [routerLink]="['/invoice',invoice.id]">details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>

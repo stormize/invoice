@@ -1,0 +1,22 @@
+
+<div class="things bg-grey-lightest border-l-4 border-red p-4 py-6 rounded shadow-lg flex items-center  " role="alert" style="width: 18rem;" ng *ngIf="details">
+    <div class="card-body">
+      <h5 class="card-title">{{details.customer_name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{details.date  | date : "dd/MM/yy HH:mm:ss"}}</h6>
+      <p class="card-text">{{details.address}}</p>
+      <h5>details</h5>
+      <button class="btn btn-success" [routerLink]="['/savedetail',details.id]">create</button>
+      <ul  *ngFor="let item of details.invoice_details">
+          <li>{{item.item_name}}</li> 
+          <li>{{item.price}}</li>
+          <li>{{item.quantity}}</li>
+          <li>{{item.total}}</li>
+          <button class="btn btn-primary" [routerLink]="['/detailupdate',item.id]">update</button>
+          <button class="btn btn-danger" (click) = "deleteDetail(item.id)">delete</button>
+        </ul><hr>
+      
+      
+    </div>
+  </div>
+
+ 
